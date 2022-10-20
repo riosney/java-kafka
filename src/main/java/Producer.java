@@ -13,8 +13,6 @@ public class Producer {
 		
 		var producer = new KafkaProducer<String, String>(properties());
 		
-		var record = new ProducerRecord<>("comprar.do.cliente", "cliente-1", "compras:20reais");
-		
 		Callback callback = (data, error) -> {
 			if(error != null) {
 				error.printStackTrace();
@@ -25,7 +23,11 @@ public class Producer {
 			System.out.println(data.offset());
 		};
 		
-		producer.send(record, callback).get();
+		for (Integer i = 0; i < 10; i++) {
+			var record = new ProducerRecord<>("ecommerce.compras", 
+					"cliente"+ i, "compras:" + i + " reais");
+			producer.send(record, callback).get();
+		}
 		
 	}
 

@@ -11,7 +11,7 @@ public class Consoumer {
 	public static void main(String[] args) {
 		
 		var consumer = new KafkaConsumer<String, String>(properties());
-		consumer.subscribe(Collections.singletonList("comprar.do.cliente"));
+		consumer.subscribe(Collections.singletonList("ecommerce.compras"));
 		
 		while(true) {
 			var records = consumer.poll(Duration.ofMillis(100));

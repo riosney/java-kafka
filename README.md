@@ -9,3 +9,4 @@
 > **Criando tópicos:**
 - **Ver topico criado:** kafka-topics.bat --bootstrap-server localhost:9092 --describe
 - **Criar topico:** kafka-topics.bat --bootstrap-server localhost:9092 --topic compras.do.cliente --create --partitions 1
+- **Criar topico:** kafka-topics.bat --bootstrap-server localhost:9092 --topic ecommerce.compras --create --partitions 3
