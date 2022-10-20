@@ -23,9 +23,9 @@ public class Producer {
 			System.out.println(data.offset());
 		};
 		
-		for (Integer i = 0; i < 10; i++) {
-			var record = new ProducerRecord<>("ecommerce.compras", 
-					"cliente"+ i, "compras:" + i + " reais");
+		for (Integer i = 0; i < 2; i++) {
+			var record = new ProducerRecord<>("ecommerce.groupid.teste", 
+					"cliente1", "compras:" + i + " reais");
 			producer.send(record, callback).get();
 		}
 		
